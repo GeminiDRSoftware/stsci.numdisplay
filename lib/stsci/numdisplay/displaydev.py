@@ -577,6 +577,11 @@ class ImageDisplay(object):
         """
         try:
             n = len(s)
+
+            # Python 3 compat
+            if isinstance(s, str):
+                s = s.encode()
+
             while n>0:
                 nwritten = self._socket.send(s[-n:])
                 n -= nwritten

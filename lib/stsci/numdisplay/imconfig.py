@@ -93,8 +93,8 @@ def loadImtoolrc(imtoolrc=None):
     fbdict = {}
     
     for line in _lines:
-        # Strip out any blanks/tabs
-        line = string.strip(line)
+        # Strip out any blanks/tabs, Python 3 compat
+        line = line.strip()
         # Ignore empty lines
         if len(line) > 1:
             _lsp = line.split()
